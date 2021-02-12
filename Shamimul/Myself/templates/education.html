@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
-            background-color: gray;
+            background-color: #556067;
         }
         h3{
             color: #1DDEEC;
@@ -40,17 +40,17 @@
         .bsc {
             text-align: center;
             padding: 20px;
-            background-color: #47C4D4;
+            background-color: #6FD7D5;
         }
         .hsc {
             text-align: center;
             padding: 20px;
-            background-color: #47C4D4;
+            background-color: #6FD7D5;
         }
         .ssc {
             text-align: center;
             padding: 20px;
-            background-color: #47C4D4;
+            background-color: #6FD7D5;
         }
         .pic{
             width: 100%;
@@ -62,6 +62,12 @@
             margin-left: 11%;
             margin-top: 15px;
             margin-bottom: 10px;
+        }
+        .card-footer {
+            background-color: black;
+            color: white;
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
 
     </style>
@@ -119,9 +125,9 @@
 </nav>
 
 <div class="pic">
-    <img src='{% static "diu.png" %}'>
-    <img src='{% static "cscr.jpg" %}'>
-    <img src='{% static "kghsk.jpg" %}'>
+    <a href="https://daffodilvarsity.edu.bd/" target="blank"> <img src='{% static "diu.png" %}'></a>
+    <a href="http://www.cscr.edu.bd/" target="blank"> <img src='{% static "cscr.jpg" %}'></a>
+    <a href="http://www.kurigramghs.edu.bd/" target="blank"> <img src='{% static "kghsk.jpg" %}'></a>
 </div>
 
 <div class="welcome">
@@ -139,7 +145,7 @@
 </div>
 <div class="hsc">
     <h4>Collectorate School & College, Rangpur</h4>
-    <h4>CGPA: 5.00 out of 5.00</h4>
+    <h4>GPA: 5.00 out of 5.00</h4>
     <h4>Group: Science</h4>
     <h4>Board: Dinajpur</h4>
     <h4>Passing Year: 2015</h4>
@@ -150,11 +156,15 @@
 </div>
 <div class="ssc">
     <h4>Kurigram Govt. High School</h4>
-    <h4>CGPA: 5.00 out of 5.00</h4>
+    <h4>GPA: 5.00 out of 5.00</h4>
     <h4>Group: Science</h4>
     <h4>Board: Dinajpur</h4>
     <h4>Passing Year: 2013</h4>
 </div>
+
+ <div class="card-foot text-center">
+     <div class="card-footer text-muted"><i class="fa fa-copyright"></i> <b>All Rights Reserved @ MD. SHAMIMUL ISLAM</b></div>
+ </div>
   <!-- JavaScript -->
 <!-- jQuery , Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

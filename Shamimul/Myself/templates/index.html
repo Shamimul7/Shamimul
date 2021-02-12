@@ -8,12 +8,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: #556067;
+        }
+         .navbar{
+            background-color: black;
+            color: white;
+        }
         h3{
             color: #1DDEEC;
+            letter-spacing: 0.1em;
             padding-left: 10px;
         }
         #navbarSupportedContent {
-            padding-left: 18%;
+            padding-left: 6%;
         }
         .dropdown-item{
             background-color: #78EDEF;
@@ -23,14 +37,50 @@
             background-color: #26A776;
         }
         .pic img {
-          width: 100%;
-          height: 800px;
+          width: 40%;
+          height: 600px;
+          margin: 5px;
         }
+
+        .clock #time {
+            display: flex;
+        }
+        .clock #time div {
+            position: relative;
+            margin-left: 5px;
+        }
+        .clock #time div span {
+            position: relative;
+            display: block;
+            width: 35px;
+            height: 25px;
+            background: blue;
+            font-weight: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+            z-index: 10;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+        }
+        .clock #time div span:nth-child(2) {
+            height: 20px;
+            font-size: 0.6em;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            z-index: 9;
+            box-shadow: none;
+            background: #127fd6;
+        }
+        .clock #time div:last-child span {
+            background: #ff006a;
+        }
+
     </style>
 </head>
 <body>
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark ">
     <a class="navbar-brand" href="#"><h3><b> MD. SHAMIMUL ISLAM </b></h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -78,6 +128,13 @@
       </li>
     </ul>
   </div>
+    <div class="clock">
+    <div id="time">
+        <div><span id="hour">00</span><span>H</span></div>
+        <div><span id="minute">00</span><span>M</span></div>
+        <div><span id="second">00</span><span>S</span></div>
+    </div>
+</div>
 </nav>
 
 <div class="pic">
@@ -85,6 +142,23 @@
 </div>
 
 
+
+<script type="text/javascript">
+  function clock() {
+    var hours = document.getElementById('hour');
+    var minutes = document.getElementById('minute');
+    var seconds = document.getElementById('second');
+
+    var h = new Date().getHours();
+    var m = new Date().getMinutes();
+    var s = new Date().getSeconds();
+
+    hours.innerHTML = h;
+    minutes.innerHTML = m;
+    seconds.innerHTML = s;
+  }
+  var interval = setInterval(clock, 1000);
+</script>
   <!-- JavaScript -->
 <!-- jQuery , Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
