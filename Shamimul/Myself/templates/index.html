@@ -11,23 +11,22 @@
         * {
             margin: 0;
             padding: 0;
-            font-family: 'Open Sans', sans-serif;
         }
 
         body {
             background-color: #556067;
         }
-         .navbar{
+        .navbar{
             background-color: black;
-            color: white;
         }
         h3{
             color: #1DDEEC;
             letter-spacing: 0.1em;
             padding-left: 10px;
+            padding-top: 5px;
         }
         #navbarSupportedContent {
-            padding-left: 6%;
+            padding-left: 9%;
         }
         .dropdown-item{
             background-color: #78EDEF;
@@ -39,46 +38,40 @@
         .pic img {
           width: 40%;
           height: 600px;
-          margin: 5px;
+          margin-top: 5px;
+          margin-left: 5px;
+          margin-right: 5px;
         }
-
-        .clock #time {
-            display: flex;
+        .card-footer {
+            background-color: black;
+            color: white;
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
-        .clock #time div {
-            position: relative;
-            margin-left: 5px;
+        .datetime{
+            color: black;
+            background: #4DAAE6;
+            font-family: "Segoe UI", sans-serif;
+            width: 180px;
+            padding: 3px;
+            border: 2px solid #DCECED;
+            border-radius: 5px;
         }
-        .clock #time div span {
-            position: relative;
-            display: block;
-            width: 35px;
-            height: 25px;
-            background: blue;
-            font-weight: 200;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1em;
-            z-index: 10;
-            box-shadow: 0 0 0 1px rgba(0,0,0,.2);
-        }
-        .clock #time div span:nth-child(2) {
-            height: 20px;
-            font-size: 0.6em;
+        .date {
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
             letter-spacing: 0.2em;
-            font-weight: 300;
-            z-index: 9;
-            box-shadow: none;
-            background: #127fd6;
         }
-        .clock #time div:last-child span {
-            background: #ff006a;
+        .time {
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.1em;
         }
-
     </style>
 </head>
-<body>
+<body onload="initClock()">
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark ">
     <a class="navbar-brand" href="#"><h3><b> MD. SHAMIMUL ISLAM </b></h3></a>
@@ -89,13 +82,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><b>HOME <i class="fa fa-home"></i> </b><span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"><b><i class="fa fa-home"></i> HOME </b><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <b>PERSONAL INFO <i class="fa fa-address-card"></i></b>
+            <b> <i class="fa fa-address-card"></i> PERSONAL INFO</b>
         </a>
-        <div class="dropdown-menu dropdown-menu-dark bg-     " aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#"><b>ABOUT</b></a>
             <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#"><b>ADDRESS</b></a>
@@ -106,35 +99,40 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="education/"><b>EDUCATION  <i class="fa fa-graduation-cap"></i> </b></a>
+        <a class="nav-link" href="education/"><b><i class="fa fa-graduation-cap"></i> EDUCATION</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><b>CERTIFICATIONS <i class="fa fa-certificate"></i></b></a>
+        <a class="nav-link" href="#"><b><i class="fa fa-certificate"></i> CERTIFICATIONS</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><b>SKILLS <i class="fa fa-bullseye"></i></b></a>
+        <a class="nav-link" href="#"><b> <i class="fa fa-bullseye"></i> SKILLS</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><b>GOAL <i class="fa fa-bullseye"></i></b></a>
+        <a class="nav-link" href="#"><b> <i class="fa fa-phone-square"></i> CONTACT</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><b>TOUR <i class="fa fa-briefcase"></i></b></a>
+        <a class="nav-link" href="#"><b> <i class="fa fa-briefcase"></i> TOUR</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><b>GALLERY <i class="fa fa-image"></i></b></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><b>CONTACT <i class="fa fa-phone-square"></i></b></a>
+        <a class="nav-link" href="gallery/"><b><i class="fa fa-image"></i> GALLERY</b></a>
       </li>
     </ul>
   </div>
-    <div class="clock">
-    <div id="time">
-        <div><span id="hour">00</span><span>H</span></div>
-        <div><span id="minute">00</span><span>M</span></div>
-        <div><span id="second">00</span><span>S</span></div>
+<!--digital clock-->
+    <div class="datetime">
+      <div class="date">
+        <span id="dayname">Day</span>,
+        <span id="daynum">00</span>
+        <span id="month">Month</span>
+        <span id="year">Year</span>
+      </div>
+      <div class="time">
+        <span id="hour">00</span>:
+        <span id="minutes">00</span>:
+        <span id="seconds">00</span>
+        <span id="period">AM</span>
+      </div>
     </div>
-</div>
 </nav>
 
 <div class="pic">
@@ -143,21 +141,48 @@
 
 
 
+
+ <div class="card-foot text-center">
+     <div class="card-footer text-muted"><i class="fa fa-copyright"></i> <b>All Rights Reserved @ MD. SHAMIMUL ISLAM</b></div>
+ </div>
+
+
+<!--digital clock function-->
 <script type="text/javascript">
-  function clock() {
-    var hours = document.getElementById('hour');
-    var minutes = document.getElementById('minute');
-    var seconds = document.getElementById('second');
-
-    var h = new Date().getHours();
-    var m = new Date().getMinutes();
-    var s = new Date().getSeconds();
-
-    hours.innerHTML = h;
-    minutes.innerHTML = m;
-    seconds.innerHTML = s;
-  }
-  var interval = setInterval(clock, 1000);
+  function updateClock(){
+      var now = new Date();
+      var dname = now.getDay(),
+          mo = now.getMonth(),
+          dnum = now.getDate(),
+          yr = now.getFullYear(),
+          hou = now.getHours(),
+          min = now.getMinutes(),
+          sec = now.getSeconds(),
+          pe = "AM";
+          if(hou >= 12){
+            pe = "PM";
+          }
+          if(hou == 0){
+            hou = 12;
+          }
+          if(hou > 12){
+            hou = hou - 12;
+          }
+          Number.prototype.pad = function(digits){
+            for(var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+          }
+          var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+          var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+          var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+          for(var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+    }
+    function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+    }
 </script>
   <!-- JavaScript -->
 <!-- jQuery , Popper.js, Bootstrap JS -->
