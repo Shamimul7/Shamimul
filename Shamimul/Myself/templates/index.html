@@ -36,17 +36,20 @@
         .dropdown-menu {
             background-color: #26A776;
         }
+        .pic{
+            width: 35%;
+        }
         .pic img {
-          width: 40%;
-          height: 600px;
-          margin-top: 5px;
-          margin-left: 5px;
-          margin-right: 5px;
+          width: 97%;
+          height: 588px;
+          margin-top: 15px;
+          margin-left: 15px;
+          margin-right: 15px;
+          margin-bottom: 15px;
         }
         .card-footer {
             background-color: black;
             color: white;
-            margin-top: 5px;
             margin-bottom: 5px;
         }
         .datetime{
@@ -70,10 +73,73 @@
             text-align: center;
             letter-spacing: 0.1em;
         }
+        .details {
+
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .study {
+            min-height: 75vh;
+            flex-wrap: wrap;
+            width: 65%;
+        }
+        .box {
+            position: relative;
+            width: 95%;
+            height: 565px;
+            background: url("https://wallpapercave.com/wp/wp2174011.jpg");
+            margin: 25px;
+            text-align: center;
+        }
+        .box:before {
+            content:'';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: #fff;
+            z-index: -1;
+        }
+        .box:after {
+            content:'';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: #78F3DB;
+            z-index:-1;
+            filter: blur(20px);
+        }
+        .box:nth-child(1):before,
+        .box:nth-child(1):after {
+            background: linear-gradient(225deg,#89ff00,#010615,#00bcd4);
+        }
+
+        .box .glass {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            display block;
+            background: rgb(255,255,255,.04);
+        }
+        .box .content {
+            color: #DBD57D;
+            padding: 20px;
+        }
+        .box .content h2{
+            color: #23C8A8;
+            padding-bottom: 15px;
+        }
     </style>
 </head>
 <body onload="initClock()">
 {% load static %}
+<!--Start-Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark ">
     <a class="navbar-brand" href="#"><h3><b> MD. SHAMIMUL ISLAM </b></h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,7 +186,7 @@
     </ul>
   </div>
 <!--digital clock-->
-    <div class="datetime">
+  <div class="datetime">
       <div class="date">
         <span id="dayname">Day</span>,
         <span id="daynum">00</span>
@@ -133,20 +199,42 @@
         <span id="seconds">00</span>
         <span id="period">AM</span>
       </div>
-    </div>
+  </div>
+<!--digital clock end-->
 </nav>
+<!--End-Navbar-->
 
-<div class="pic">
-  <img src='{% static "1.jpg" %}'>
+<!--Body start-->
+<div class="details">
+    <div class="pic">
+        <img src='{% static "1.jpg" %}'>
+    </div>
+
+    <div class="study">
+        <div class="box">
+            <div class="glass"></div>
+                <div class="content">
+                    <h2><b>MD. SHAMIMUL ISLAM SAGOR</b></h2>
+                    <p>
+                        <i class="fa fa-2x fa-phone-square"></i> <i class="fa fa-2x fa-facebook"></i>
+                        <i class="fa fa-2x fa-github"></i> <i class="fa fa-2x fa-twitter"></i>
+                    </p>
+                </div>
+        </div>
+    </div>
 </div>
 
+<!--Body End-->
 
 
 
+
+
+<!--Footer start-->
  <div class="card-foot text-center">
      <div class="card-footer text-muted"><i class="fa fa-copyright"></i> <b>All Rights Reserved @ MD. SHAMIMUL ISLAM</b></div>
  </div>
-
+<!--Footer end-->
 
 <!--digital clock function-->
 <script type="text/javascript">
